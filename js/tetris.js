@@ -195,8 +195,14 @@ class Game {
     }
   }
 
+  applyMultiplier(score) {
+    let multiplier = 1.2;
+    return parseFloat((score * multiplier).toFixed(2));
+  }
+
   addScore(rows) {
     this.score += Game.PER_SQUARE_SCORE * Game.COLUMNS * rows.length;
+    this.score = this.applyMultiplier(this.score);
     this.refreshScore();
   }
 
